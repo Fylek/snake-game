@@ -108,17 +108,17 @@ class Grid:
             for x in range(self.grid_size["x"]):
                 try:
                     # add horizontal padding first
-                    stdscr.addstr(y,x*len(self.horizontal_padding),self.horizontal_padding)
+                    stdscr.addstr(y,x*(len(self.horizontal_padding)+len(self.unoccupied_char)),self.horizontal_padding)
                     
                     # then char depending on status of coordinate
                     if [x,y] in occupied_snake:
-                        stdscr.addstr(y,x*len(self.snake_char),self.snake_char)
+                        stdscr.addstr(y,x*(len(self.horizontal_padding)+len(self.unoccupied_char)),self.snake_char)
                     elif [x,y] == occupied_food:
-                        stdscr.addstr(y,x*len(self.food_char),self.food_char)
+                        stdscr.addstr(y,x*(len(self.horizontal_padding)+len(self.unoccupied_char)),self.food_char)
                     elif y == 0 and x == 0:
                         stdscr.addstr(y,x*3,f"{len(snake_pos):003}")
                     else:
-                        stdscr.addstr(y,x*len(self.unoccupied_char),self.unoccupied_char)
+                        stdscr.addstr(y,x*(len(self.horizontal_padding)+len(self.unoccupied_char)),self.unoccupied_char)
                 except curses.error:
                     # renderer error
                     pass
