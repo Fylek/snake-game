@@ -19,10 +19,14 @@ These instructions will get you a copy of the project up and running on your loc
 cd /to/installation/path
 ```
 
-And repeat
-
+Get latest release from release pages (replace link below with actual link):
 ```
-wget 
+wget https://github.com/jcbfshr/snake-game/archive/vx.x.x.tar.gz
+```
+
+Unzip
+```
+tar -xvf {archive_name}
 ```
 
 ## Running
